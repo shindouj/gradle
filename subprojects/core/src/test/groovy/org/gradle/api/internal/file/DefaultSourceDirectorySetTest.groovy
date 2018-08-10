@@ -275,7 +275,7 @@ public class DefaultSourceDirectorySetTest extends Specification {
         set.addToAntBuilder("node", "fileset")
 
         then:
-        InvalidUserDataException e = thrown()
+        def e = thrown InvalidUserDataException
         e.message == "Source directory '$srcDir' is not a directory."
     }
 
@@ -331,7 +331,7 @@ public class DefaultSourceDirectorySetTest extends Specification {
         set.stopExecutionIfEmpty()
 
         then:
-        StopExecutionException e = thrown()
+        def e = thrown StopExecutionException
         e.message == '<display-name> does not contain any files.'
     }
 
@@ -343,7 +343,7 @@ public class DefaultSourceDirectorySetTest extends Specification {
         set.stopExecutionIfEmpty()
 
         then:
-        StopExecutionException e = thrown()
+        def e = thrown StopExecutionException
         e.message == '<display-name> does not contain any files.'
     }
 

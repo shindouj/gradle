@@ -396,7 +396,7 @@ class DefaultTaskTest extends AbstractTaskTest {
         execute(defaultTask)
 
         then:
-        RuntimeException actual = thrown()
+        def actual = thrown RuntimeException
         actual.cause.is(failure)
         defaultTask.state.failure instanceof TaskExecutionException
         defaultTask.state.failure.cause.is(failure)
@@ -478,7 +478,7 @@ class DefaultTaskTest extends AbstractTaskTest {
         new DefaultTask()
 
         then:
-        TaskInstantiationException e = thrown()
+        def e = thrown TaskInstantiationException
         e.message.contains("has been instantiated directly which is not supported")
     }
 
